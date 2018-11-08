@@ -1,6 +1,7 @@
 package com.exampleframework.algorithmchallenge.Tooling;
 
 import java.time.Duration;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Timer{
@@ -12,13 +13,15 @@ public class Timer{
         return Duration.ofNanos(endTime - startTime);
     }
 
-   // public static Duration avgTimeInNanos(Runnable functionToTime, Integer repetitions) {
-//        Long sumNanos = IntStream.range(1, repetitions).boxed()
-//                .map(rep -> timeInNanos(functionToTime))
-//                .mapToLong(duration -> duration.toNanos())
-//                .sum();
-//
-//        return Duration.ofNanos(sumNanos / repetitions);
 
-    //}
+
+    public static Duration avgTimeInNanos(Runnable functionToTime, Integer repetitions) {
+        Long sumNanos = IntStream.range(1, repetitions).boxed()
+                .map(rep -> timeInNanos(functionToTime))
+                .mapToLong(duration -> duration.toNanos())
+                .sum();
+
+        return Duration.ofNanos(sumNanos / repetitions);
+
+    }
 }

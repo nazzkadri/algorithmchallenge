@@ -11,25 +11,16 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AccessLastTest {
+class sortOfZerosAndOnesTest {
 
     @Test
-    void accessLastTest() {
-        List<Duration> durs = Samples.createListWithNInts(5000, 5000, 100).stream()
-                .map(list -> Timer.timeInNanos(() -> AccessLast.RetrunLastElement(list)))
+    void sortOfZeroOnesTest() {
+        List<Duration> durs = Samples.createListWithZeroAndOnes(5000, 5000, 100).stream()
+                .map(list -> Timer.avgTimeInNanos(() -> sortOfZerosAndOnes.sortZerosAndOnes(list),100))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
 
         System.out.println("\n\n");
-//
-//        durs = Samples.sampleLists().stream()
-//                .map(list -> Timer.avgTimeInNanos(() -> AccessLast.lastEntryDefault(list), 1000000))
-//                .collect(Collectors.toList());
-//        Output.printDurationsInNanosecs(durs);
     }
-
-
-
-
 
 }

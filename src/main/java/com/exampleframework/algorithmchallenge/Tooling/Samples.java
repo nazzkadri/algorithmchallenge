@@ -9,8 +9,8 @@ import java.util.stream.IntStream;
 
 public class Samples {
 
-    public static List<Integer> sizes = Arrays.asList(10000, 20000, 30000, 40000);
-
+//    public static List<Integer> sizes = Arrays.asList(10, 100, 1000, 10000);
+//
 //    public static List<List<Integer>> sampleLists() {
 //        return sizes.stream()
 //                .map(count -> ListCreation.createListWithStream(1, count))
@@ -44,37 +44,57 @@ public class Samples {
 //    }
 
 
-public static void hundredIterations(int steps){
-    for(int i=1; i<=100; i++) {
-        createListWithSteps(steps);
-        steps += 5000;
-    }
-
-}
-
-    public static ArrayList<Integer> createListWithSteps(int steps) {
-
-            int arraySize = steps;
-
-            return (ArrayList<Integer>) ListCreation.createArrayList(1, arraySize);
-
-    }
 
 
-    public static List<List<Integer>> sampleListsManualValues() {
-        return createListWithNInts(5000, 5000, 100)
-                .stream()
-                .map(count -> ListCreation.createListWithStream(1, count))
-                .collect(Collectors.toList());
-    }
+//    public static List<List<Integer>> sampleListsManualValues() {
+//        return createListWithNInts(5000, 5000, 100)
+//                .stream()
+//                .map(count -> ListCreation.createListWithStream(1, count))
+//                .collect(Collectors.toList());
+//    }
 
-    public static List<Integer> createListWithNInts(int start, int stepSize, int limit) {
+    public static List<List<Integer>> createListWithNInts(int start, int stepSize, int iterations) {
 
-        return IntStream.iterate(start, prev -> prev + stepSize)
-                .limit(limit)
+                List<Integer> temp = IntStream.iterate(start, prev -> prev + stepSize)
+                .limit(iterations)
                 .boxed()
                 .collect(Collectors.toList());
+
+                return temp.stream()
+                        .map(count -> ListCreation.createListWithStream(1, count))
+                        .collect(Collectors.toList());
+
     }
+
+
+    public static List<List<Integer>> createListWithZeroAndOnes(int start, int stepSize, int iterations) {
+
+        List<Integer> temp = IntStream.iterate(start, prev -> prev + stepSize)
+                .limit(iterations)
+                .boxed()
+                .collect(Collectors.toList());
+
+        return temp.stream()
+                .map(count -> ListCreation.createListWithZerosAndOnes(0, count))
+                .collect(Collectors.toList());
+
+    }
+
+
+    public static List<List<Integer>> createListWithRandomNumbers(int start, int stepSize, int iterations) {
+
+        List<Integer> temp = IntStream.iterate(start, prev -> prev + stepSize)
+                .limit(iterations)
+                .boxed()
+                .collect(Collectors.toList());
+
+        return temp.stream()
+                .map(count -> ListCreation.createRandomLists(0, count))
+                .collect(Collectors.toList());
+
+    }
+
+
 
 
 //    public static List<List<Integer>> sampleListsManualValues() {
