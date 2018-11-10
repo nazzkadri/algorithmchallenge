@@ -18,3 +18,7 @@ Here are a few algorithms you should try to implement and optimise:
 
 
 ![Built in Sort](/graphs/BuiltinSort.png)
+![Own Optimised Shuffle](/graphs/OwnOptimisedShuffle.png)
+![Own Shuffle Vs Built in Shuffle](/graphs/OwnShuffle-vs-Built-in-Shuffle.png.png)
+![Built in Sort](/graphs/BuiltinSort.png)
+![Built in Sort](/graphs/BuiltinSort.png)

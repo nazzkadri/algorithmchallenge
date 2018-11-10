@@ -9,6 +9,28 @@ import java.util.stream.IntStream;
 
 public class ListCreation {
 
+    public static String[] cohorts = {"Nazz",
+            "Freya",
+            "Shweta",
+            "Patrick",
+            "Vu",
+            "Chloe",
+            "Amy",
+            "Alex",
+            "Din",
+            "Damion",
+            "Robbie",
+            "Ruaridhi",
+            "Victor",
+            "Nathan",
+            "Ibs",
+            "Sebastian"
+    };
+    public static String[] createListForGroups(){
+        final String[] cohortGroup = cohorts;
+        return cohortGroup;
+
+    }
 
     public static List<Integer> createListWithStream(int from, int limit) {
         return IntStream.range(from, limit)
