@@ -1,9 +1,12 @@
 package com.exampleframework.algorithmchallenge.Exercises;
 
+import java.util.List;
+
 public class OwnMergeSort {
 
     public static int[] mergeSort(int[] originalArr){
 
+       // int [] originalArr = originalArray.stream().mapToInt(Integer::intValue).toArray();
         int n = originalArr.length;
         if(n < 2) {
             return originalArr;
